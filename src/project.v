@@ -20,7 +20,7 @@ module tt_um_pwmgenerator (
   assign uio_in = 8'b0;
   assign uio_out = 8'b0;
   assign uio_oe  = 8'b0;
-  assign  ui_in [7:2] = 0;
+ //  assign  ui_in [7:2] = 0;
   assign uo_out [7:1] = 0;
 
   // List all unused inputs to prevent warnings
