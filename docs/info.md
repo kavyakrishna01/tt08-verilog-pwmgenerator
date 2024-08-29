@@ -9,12 +9,16 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-Explain how your project works
+The buttons are debounced using a slow clock enable signal. When the increase duty button is pressed, the duty cycle increases by ten per cent. Similarly, pressing the decrease duty button reduces the duty cycle by ten per cent. The pwm out signal is set high when counter PWM is less than duty cycle and low otherwise, producing the desired pwm waveform.
 
 ## How to test
 
-Explain how to use your project
+Generate a 10 M Hz PWM signal from a 100 M Hz clock with an initial 50 per cent duty cycle, where the duty cycle increases or decreases by 10 per cent on increase duty or decrease duty button presses, outputing the signal as PWM OUT.
+
+
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+
+push buttons, pwm load
+
