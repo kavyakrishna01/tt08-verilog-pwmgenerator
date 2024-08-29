@@ -17,7 +17,7 @@ module tt_um_pwmgenerator (
 );
 
   // All output pins must be assigned. If not used, assign to 0.
-  assign uo_out= ui_in + uio_in;
+ // assign uo_out= ui_in + uio_in;
   assign uio_out = 8'b0;
   assign uio_oe  = 8'b0;
  //  assign  ui_in [7:2] = 0;
