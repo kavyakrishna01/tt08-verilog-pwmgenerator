@@ -24,7 +24,7 @@ module tt_um_pwmgenerator (
   assign uo_out [7:1] = 0;
 
   // List all unused inputs to prevent warnings
-    wire _unused = &{ena, rst_n, ui_in[7:2]};
+    wire _unused = &{ena, rst_n, ui_in[7:2],uio_in};
 pwmgenerator m1
  (
      .clk(clk), // 100MHz clock input 
