@@ -19,14 +19,17 @@ module pwmgenerator(
  always @(posedge clk)
  begin
    counter_debounce <= counter_debounce + 1;
-
+   //if(counter_debounce>=25000000) then  
+   // for running on FPGA -- comment when running simulation
    if(counter_debounce>=1) 
- 
+   // for running simulation -- comment when running on FPGA
     counter_debounce <= 0;
  end
-
+ // assign slow_clk_enable = counter_debounce == 25000000 ?1:0;
+ // for running on FPGA -- comment when running simulation 
  assign slow_clk_enable = counter_debounce == 1 ?1:0;
-
+ // for running simulation -- comment when running on FPGA
+ // debouncing FFs for increasing button
  DFF_PWM PWM_DFF1(clk,slow_clk_enable,increase_duty,tmp1);
  DFF_PWM PWM_DFF2(clk,slow_clk_enable,tmp1, tmp2); 
  assign duty_inc =  tmp1 & (~ tmp2) & slow_clk_enable;
@@ -50,14 +53,4 @@ module pwmgenerator(
     counter_PWM <= 0;
  end
  assign PWM_OUT = counter_PWM < DUTY_CYCLE ? 1:0;
-endmodule
-// Debouncing DFFs for push buttons on FPGA
-module DFF_PWM(clk,en,D,Q);
-input clk,en,D;
-output reg Q;
-always @(posedge clk)
-begin 
- if(en==1) // slow clock enable signal 
-  Q <= D;
-end 
 endmodule
